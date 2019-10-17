@@ -43,13 +43,15 @@ Alternatively, AWS account ID and Secret
 
 ## Installing
 
-Obtain the BigID integration docker container
-Download from docker hub docker pull bigidX/aws-sec-hub-integration
+Obtain the BigID integration docker container.
+Download from docker hub docker pull bigidX/aws-sec-hub-integration.
 Or, contact BigID Support
 
 
 ## Deployment
-Add additional notes about how to deploy this on a live system
+Link to Cloudformation template:
+<contact BigID support>
+
 ## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 ## Versioning
