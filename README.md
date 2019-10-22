@@ -44,24 +44,52 @@ Alternatively, AWS account ID and Secret
 ## Installing
 
 Obtain the BigID integration docker container.
-Download from docker hub docker pull bigidX/aws-sec-hub-integration.
+Either from docker hub: docker pull bigexchange/bigid-sec-hub.
 Or, contact BigID Support
 
 
 ## Deployment
 Link to Cloudformation template:
 <contact BigID support>
+    
+To run the docker image you can use the following command template:
+docker run -d -e BIGID_HOST='ip/url of bigid server, e.g. https://bigidserver.com' \
+-e BIGID_USERNAME='user' \
+-e BIGID_PASSWORD='changeme' \
+-e AWS_ACCOUNT_ID='123455557890' \
+-e AWS_REGION='eu-west-1' \
+--name bigid-sec-hub bigexchange/bigid-sec-hub
+
+Mandatory params:
+BIGID_HOST - host of BigID product
+BIGID_USERNAME - username for API access
+BIGID_PASSWORD - user login for API access
+AWS_ACCOUNT_ID - AWS account Id where you want to import findings
+AWS_REGION - AWS region where SecurityHub is enabled
+
+Optional params:
+AWS_ACCESS_KEY_ID - AWS credentials of user who have full access to security hub
+AWS_SECRET_ACCESS_KEY - AWS credentials of user who have full access to security hub
+SYNC_INTERVAL_SECONDS - sync interval in seconds. Default is 5 minutes.
+
+If you are using an image on EC2 then don't use AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Better to use EC2 role instead. 
+
+## Implementation
+
+The code was designed to be fault tolerance and cost effective.
+- initially we import only violated policies;
+- if policy already exists in SecurityHub we update it only when changes were detected;
+- when BigID token expired, then application will relogin and take a new one without stop working;
+- is case of any errors only single sync iteration will be interrupted, but code continue working;
+- detailed logging provided, you can see the logs in docker container output;
 
 ## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 ## Versioning
 We use SemVer for versioning. For the versions available, see the tags on this repository.
 ## Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+BigID Engineering
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
-## Acknowledgments
-Hat tip to anyone whose code was used
 
 
