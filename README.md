@@ -1,5 +1,5 @@
 # BigID - AWS Security Hub Integration
-Readme 2019-10-06
+Readme 2019-10-23
 
 ## General 
 BigID product helps companies manage and protect sensitive data (PII) across all their systems. It scans data sources (databases, file shares, cloud services etc) and discovers PI and data relevant to privacy regulations (GDPR, Health data, etc). E.g. if SSN is found in some table, it is most likely relevant to CCPA privacy regulation and thus needs to be reported.
