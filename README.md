@@ -70,6 +70,9 @@ BIGID_APP_MODE - set APPLICATION for application mode
 Optional params:  
 BIGID_APP_PORT - application port, by default 3000   
 
+## Add the app to BigID
+Follow the instructions for adding an app to BigID described in this guide:
+https://www.docs.bigid.com/docs/app-framework
 
 Run in LEGACY mode example:
 ```bash
