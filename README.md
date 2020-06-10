@@ -58,7 +58,7 @@ Or, contact BigID Support to get a download link or tar file.
 ## Deployment
 Link to CloudFormation template: contact BigID support
     
-Run in APPLICATION mode example:
+### Run in APPLICATION mode example:
 ```bash
 sudo docker run -p 3000:3000 -d -e BIGID_APP_MODE='APPLICATION' \
 -e BIGID_APP_PORT='3000' \
@@ -70,11 +70,11 @@ BIGID_APP_MODE - set APPLICATION for application mode
 Optional params:  
 BIGID_APP_PORT - application port, by default 3000   
 
-## Add the app to BigID
+#### Add the app to BigID
 Follow the instructions for adding an app to BigID described in this guide:
 https://www.docs.bigid.com/docs/app-framework
 
-Run in LEGACY mode example:
+### Run in LEGACY mode example:
 ```bash
 sudo docker run -d -e BIGID_APP_MODE='LEGACY' \
 -e BIGID_HOST='https://bigidserver.com' \
